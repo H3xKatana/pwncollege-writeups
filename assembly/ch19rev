@@ -1,0 +1,24 @@
+from pwn import *
+
+
+base=0x555555554000
+io= process("/tmp/babyrev_level19.0")
+inter_cmp= base + 0x1666
+load= base + 0x16aa
+
+
+gdbscript= f"""
+
+b *{load}
+commands
+    x/1bx $rbp-2
+    x/1bx $rbp-1
+    c
+end
+
+c
+
+"""
+
+
+g = gdb.debug(io,gdbscript=gdbscript,setuid=False)
