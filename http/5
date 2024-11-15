@@ -1,0 +1,5 @@
+nc localhost 80
+
+
+GET / HTTP/1.0
+Host:lkfallflf

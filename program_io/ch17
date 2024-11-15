@@ -1,0 +1,7 @@
+
+
+from pwntools import *
+
+
+p=process(['/challenge/embryoio_level17','muzdkobxjd'])
+p.interactive()

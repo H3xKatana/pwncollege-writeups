@@ -1,0 +1,6 @@
+from pwn import *
+
+pgrep=process(['grep','pwn'])
+
+p=process(['/challenge/embryoio_level49'],stdout=pgrep.stdin)
+pgrep.interactive()

@@ -1,0 +1,4 @@
+from pwn import *
+
+p=process(['/challenge/embryoio_level26'],stdin=open('/tmp/yhkmsh','r'))
+p.interactive()

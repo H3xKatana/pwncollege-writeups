@@ -1,0 +1,20 @@
+very intersting challenge
+
+
+solved by doing this mv /usr/bin/cat   /usr/bin/mv
+
+
+then excuting the /challge/....
+
+
+this will give the mv a suid bit but mv is cat now so we print 
+
+the flag directly
+
+ 
+
+
+pwn.college{g0Gvmqu837eBUzQ6_NaSfjBO3K5.0lM4EDL1kjMzQzW}
+
+
+

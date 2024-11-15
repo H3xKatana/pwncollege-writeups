@@ -1,0 +1,11 @@
+nc localhost 80
+GET /?a=d963dbeb7e9ce049d0c2b8f7f3cccda3 HTTP/1.0
+
+HTTP/1.1 200 OK
+Server: Werkzeug/3.0.1 Python/3.8.10
+Date: Sat, 30 Dec 2023 09:58:09 GMT
+Content-Length: 58
+Server: pwn.college
+Connection: close
+
+pwn.college{g_u-kMfRX-JDLQo4-MZph9bhIam.dFDOyMDL1kjMzQzW}

@@ -1,0 +1,5 @@
+curl -H "Cookie: cookie=6b2efa7d54682d3672d902b6941a8de6" -L "http://localhost"
+
+
+
+curl -b"cookie=6b2efa7d54682d3672d902b6941a8de6" -L "http://localhost"

@@ -1,0 +1,4 @@
+from pwn import *
+
+p=process(['/challenge/embryoio_level28'],env={})
+p.interactive()

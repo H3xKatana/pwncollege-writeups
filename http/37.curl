@@ -1,0 +1,24 @@
+repeated 4 times 
+
+curl  -v -H"Cookie: session=eyJzdGF0ZSI6M30.ZZBv2A.ZZY4Zvh1ZquOZIWo-bbNO_tBokQ"  "http://localhost"
+*   Trying 127.0.0.1:80...
+* TCP_NODELAY set
+* Connected to localhost (127.0.0.1) port 80 (#0)
+> GET / HTTP/1.1
+> Host: localhost
+> User-Agent: curl/7.68.0
+> Accept: */*
+> Cookie: session=eyJzdGF0ZSI6M30.ZZBv2A.ZZY4Zvh1ZquOZIWo-bbNO_tBokQ
+> 
+* Mark bundle as not supporting multiuse
+< HTTP/1.1 200 OK
+< Server: Werkzeug/3.0.1 Python/3.8.10
+< Date: Sat, 30 Dec 2023 19:30:53 GMT
+< Content-Length: 58
+< Server: pwn.college
+< Vary: Cookie
+< Set-Cookie: session=eyJzdGF0ZSI6NH0.ZZBv7Q.jYLYTtjTCZvPdCujMhRS3B4P-OE; HttpOnly; Path=/
+< Connection: close
+< 
+pwn.college{ABuYU5Q5-cd2aeGyGzXC5y_KnYt.dRDMzMDL1kjMzQzW}
+

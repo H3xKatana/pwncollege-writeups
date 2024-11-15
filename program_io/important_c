@@ -1,0 +1,34 @@
+File descriptors in Unix-like operating systems, including Linux, are integer identifiers used by the kernel to represent open files, sockets, pipes, and other I/O resources. They are an abstraction that allows processes to interact with files and I/O devices.
+
+Here's a basic overview of how file descriptors work:
+
+Standard File Descriptors:
+
+In Unix-like systems, each process has three standard file descriptors open by default:
+0 - Standard input (stdin)
+1 - Standard output (stdout)
+2 - Standard error (stderr)
+These file descriptors are typically associated with the keyboard for input (stdin) and the terminal for output (stdout and stderr), but they can be redirected to files or other I/O resources.
+Opening Files:
+
+When you open a file in a C program using functions like open(), fopen(), or fdopen(), the operating system returns a file descriptor representing that open file.
+File descriptors are non-negative integers, where -1 typically indicates an error.
+Accessing Files:
+
+Once you have a file descriptor, you can use it to read from or write to the corresponding file or I/O resource.
+For example, you can use read() and write() system calls to read from or write to files using their file descriptors.
+Closing Files:
+
+When you're done using a file descriptor, you should close it using the close() function. This releases the associated resources and allows them to be reused by the operating system.
+Not closing file descriptors can lead to resource leaks and may eventually exhaust system resources.
+Duplication and Redirection:
+
+The dup() and dup2() functions allow you to duplicate existing file descriptors or redirect them to different resources.
+dup2(oldfd, newfd) duplicates the file descriptor oldfd to newfd, closing newfd if necessary.
+This is commonly used for I/O redirection, such as redirecting standard input, output, and error to files or other processes.
+Overall, file descriptors provide a flexible and efficient way for processes to interact with files and I/O resources in Unix-like systems. They are a fundamental concept for understanding system-level programming and Unix-based operating systems.
+
+
+
+
+

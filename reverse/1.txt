@@ -1,0 +1,96 @@
+
+: pid 3546
+b'\x00\x00\x00'
+
+: 1B
+: 84B
+[*] Process '/challenge/babyrev_level22.1' stopped with exit code 1 (pid 3546)
+[+] Receiving all data: Done (84B)
+b' [+] Starting interpreter loop! Good luck!\nMachine CRASHED due to: unknown register\n'
+1
+
+: pid 3547
+b'\x01\x00\x00'
+
+: 1B
+: 42B
+: 43B
+: 84B
+[+] Receiving all data: Done (84B)
+[*] Stopped process '/challenge/babyrev_level22.1' (pid 3547)
+b' [+] Starting interpreter loop! Good luck!\nMachine CRASHED due to: unknown register\n'
+1
+
+: pid 3548
+b'\x02\x00\x00'
+
+: 1B
+[*] Process '/challenge/babyrev_level22.1' stopped with exit code 1 (pid 3548)
+: 84B
+[+] Receiving all data: Done (84B)
+b' [+] Starting interpreter loop! Good luck!\nMachine CRASHED due to: unknown register\n'
+1
+
+: pid 3558
+b'\x04\x00\x00'
+
+: 1B
+: 42B
+: 43B
+: 84B
+[*] Process '/challenge/babyrev_level22.1' stopped with exit code 1 (pid 3558)
+[+] Receiving all data: Done (84B)
+b' [+] Starting interpreter loop! Good luck!\nMachine CRASHED due to: unknown register\n'
+1
+
+: pid 3559
+b'\x08\x00\x00'
+
+: 1B
+: 84B
+[*] Process '/challenge/babyrev_level22.1' stopped with exit code 1 (pid 3559)
+[+] Receiving all data: Done (84B)
+b' [+] Starting interpreter loop! Good luck!\nMachine CRASHED due to: unknown register\n'
+1
+
+: pid 3560
+b'\x10\x00\x00'
+
+: 1B
+: 84B
+[*] Process '/challenge/babyrev_level22.1' stopped with exit code 1 (pid 3560)
+[+] Receiving all data: Done (84B)
+b' [+] Starting interpreter loop! Good luck!\nMachine CRASHED due to: unknown register\n'
+1
+
+: pid 3561
+b' \x00\x00'
+
+: 1B
+: 84B
+[*] Process '/challenge/babyrev_level22.1' stopped with exit code 1 (pid 3561)
+[+] Receiving all data: Done (84B)
+b' [+] Starting interpreter loop! Good luck!\nMachine CRASHED due to: unknown register\n'
+1
+
+: pid 3562
+b'@\x00\x00'
+
+: 1B
+: 84B
+[*] Process '/challenge/babyrev_level22.1' stopped with exit code 1 (pid 3562)
+[+] Receiving all data: Done (84B)
+b' [+] Starting interpreter loop! Good luck!\nMachine CRASHED due to: unknown register\n'
+1
+
+: pid 3572
+b'\x80\x00\x00'
+
+: 1B
+: 42B
+: 43B
+: 84B
+[+] Receiving all data: Done (84B)
+[*] Stopped process '/challenge/babyrev_level22.1' (pid 3572)
+b' [+] Starting interpreter loop! Good luck!\nMachine CRASHED due to: unknown register\n'
+1

@@ -1,0 +1,6 @@
+from pwn import *
+
+pcat=process('cat')
+
+p=process(['/challenge/embryoio_level48'],stdout=pcat.stdin)
+pcat.interactive()

@@ -1,0 +1,20 @@
+sendp(Ether(src=46:ca:e6:18:e1:71,type=0xffff) / IP(src=10.0.0.2,dst=10.0.0.3),iface=eth0)
+
+>>> (Ether(src=46:ca:e6:18:e1:71,type=0xffff) / IP(src=10.0.0.2,dst=10.0.0.3)).display()###[ Ethernet ]###
+  dst       = None (resolved on build)
+  src       = 46:ca:e6:18:e1:71
+  type      = 0xffff
+###[ IP ]###
+     version   = 4
+     ihl       = None
+     tos       = 0x0
+     len       = None
+     id        = 1
+     flags     = 
+     frag      = 0
+     ttl       = 64
+     proto     = hopopt
+     chksum    = None
+     src       = 10.0.0.2
+     dst       = 10.0.0.3
+     \options   

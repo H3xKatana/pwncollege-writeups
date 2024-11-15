@@ -1,0 +1,1 @@
+sendp(Ether(src=aa:c0:38:39:a1:0a) / IP(src=10.0.0.2,dst=10.0.0.3,proto=0xff),iface=eth0)

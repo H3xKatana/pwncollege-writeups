@@ -1,0 +1,7 @@
+
+
+
+from pwn import *
+
+p=process(['/challenge/embryoio_level17'],env={ 'mufyxw':'ulflmtrplg'})
+p.recv()

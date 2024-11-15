@@ -1,0 +1,10 @@
+curl -X POST -H "Content-Type: application/json" -d '{
+  "a": "2dc384c58d3cd78de4b0325f0909bcd0",
+  "b": {
+    "c": "179a9ce3",
+    "d": [
+      "77a957b4",
+      "7b477ea4 c95a5397&680126c2#e76a22e9"
+    ]
+  }
+}' "http://localhost:80"

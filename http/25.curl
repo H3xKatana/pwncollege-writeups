@@ -1,0 +1,22 @@
+curl -v -X POST -H "Content-Type: application/json" -d '{"a":"a2cbee1730d5256779f8518d8660f13a"}' "http://localhost"
+Note: Unnecessary use of -X or --request, POST is already inferred.
+*   Trying 127.0.0.1:80...
+* TCP_NODELAY set
+* Connected to localhost (127.0.0.1) port 80 (#0)
+> POST / HTTP/1.1
+> Host: localhost
+> User-Agent: curl/7.68.0
+> Accept: */*
+> Content-Type: application/json
+> Content-Length: 40
+> 
+* upload completely sent off: 40 out of 40 bytes
+* Mark bundle as not supporting multiuse
+< HTTP/1.1 200 OK
+< Server: Werkzeug/3.0.1 Python/3.8.10
+< Date: Sat, 30 Dec 2023 15:39:33 GMT
+< Content-Length: 58
+< Server: pwn.college
+< Connection: close
+< 
+pwn.college{M9jqd0RBuigqyKciyu-E3FumTip.dJTOyMDL1kjMzQzW}

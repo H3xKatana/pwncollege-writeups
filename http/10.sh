@@ -1,0 +1,3 @@
+#all specail chars must be encode like space ....
+curl http://localhost/841f012d%20ad6d5f6e/d4beceef%201ecadba7
+

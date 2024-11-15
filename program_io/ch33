@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <stddef.h>
+#include <unistd.h>
+#include <fcntl.h>
+int pwncollege() {
+    int pid;
+
+    // Fork a child process
+    pid = fork();
+
+    if (pid == 0 ){
+         int input_fd = open(/tmp/jhaawx, O_RDONLY);
+         dup2(input_fd, 0);
+         close(input_fd);
+        char *argv[]={embryoio_level31,NULL};
+        char *envp[]={NULL};
+        execve(/challenge/embryoio_level33,argv,envp);
+    }
+    else 
+    {
+        waitpid(pid , NULL , 0);
+        
+        
+        
+    
+    }
+    
+}
+int main(){
+
+    return pwncollege();
+    
+}

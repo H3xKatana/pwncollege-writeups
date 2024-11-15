@@ -1,0 +1,4 @@
+from pwn import *
+
+p=process(['/challenge/embryoio_level25'],env={'vedkpv':'vxabcfteym'})
+p.interactive()

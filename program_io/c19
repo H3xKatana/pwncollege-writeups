@@ -1,0 +1,147 @@
+#!/usr/bin/python
+
+from pwn import *
+
+ p=process('/challenge/embryoio_level19',stdin=open('/tmp/zciunw','r'))
+
+p.interactive()
+
+
+
+
+"""
+class pwnlib.tubes.process.process(argv=None, shell=False, executable=None, cwd=None, env=None, stdin=-1, stdout=<pwnlib.tubes.process.PTY object>, stderr=-2, close_fds=True, preexec_fn=<function process.<lambda>>, raw=True, aslr=None, setuid=None, where='local', display=None, alarm=None, *args, **kwargs)[source]
+Bases: tube
+
+Spawns a new process, and wraps it with a tube for communication.
+
+Parameters
+argv (list) – List of arguments to pass to the spawned process.
+
+shell (bool) – Set to True to interpret argv as a string to pass to the shell for interpretation instead of as argv.
+
+executable (str) – Path to the binary to execute. If None, uses argv[0]. Cannot be used with shell.
+
+cwd (str) – Working directory. Uses the current working directory by default.
+
+env (dict) – Environment variables. By default, inherits from Python’s environment.
+
+stdin (int) – File object or file descriptor number to use for stdin. By default, a pipe is used. A pty can be used instead by setting this to PTY. This will cause programs to behave in an interactive manner (e.g.., python will show a >>> prompt). If the application reads from /dev/tty directly, use a pty.
+
+stdout (int) – File object or file descriptor number to use for stdout. By default, a pty is used so that any stdout buffering by libc routines is disabled. May also be PIPE to use a normal pipe.
+
+stderr (int) – File object or file descriptor number to use for stderr. By default, STDOUT is used. May also be PIPE to use a separate pipe, although the pwnlib.tubes.tube.tube wrapper will not be able to read this data.
+
+close_fds (bool) – Close all open file descriptors except stdin, stdout, stderr. By default, True is used.
+
+preexec_fn (callable) – Callable to invoke immediately before calling execve.
+
+raw (bool) – Set the created pty to raw mode (i.e. disable echo and control characters). True by default. If no pty is created, this has no effect.
+
+aslr (bool) –
+
+If set to False, disable ASLR via personality (setarch -R) and setrlimit (ulimit -s unlimited).
+
+This disables ASLR for the target process. However, the setarch changes are lost if a setuid binary is executed.
+
+The default value is inherited from context.aslr. See setuid below for additional options and information.
+
+setuid (bool) –
+
+Used to control setuid status of the target binary, and the corresponding actions taken.
+
+By default, this value is None, so no assumptions are made.
+
+If True, treat the target binary as setuid. This modifies the mechanisms used to disable ASLR on the process if aslr=False. This is useful for debugging locally, when the exploit is a setuid binary.
+
+If False, prevent setuid bits from taking effect on the target binary. This is only supported on Linux, with kernels v3.5 or greater.
+
+where (str) – Where the process is running, used for logging purposes.
+
+display (list) – List of arguments to display, instead of the main executable name.
+
+alarm (int) – Set a SIGALRM alarm timeout on the process.
+
+Examples
+
+p = process('python')
+p.sendline(b"print('Hello world')")
+p.sendline(b"print('Wow, such data')")
+b'' == p.recv(timeout=0.01)
+True
+p.shutdown('send')
+p.proc.stdin.closed
+True
+p.connected('send')
+False
+p.recvline()
+b'Hello world\n'
+p.recvuntil(b',')
+b'Wow,'
+p.recvregex(b'.*data')
+b' such data'
+p.recv()
+b'\n'
+p.recv() 
+Traceback (most recent call last):
+...
+EOFError
+p = process('cat')
+d = open('/dev/urandom', 'rb').read(4096)
+p.recv(timeout=0.1)
+b''
+p.write(d)
+p.recvrepeat(0.1) == d
+True
+p.recv(timeout=0.1)
+b''
+p.shutdown('send')
+p.wait_for_close()
+p.poll()
+0
+p = process('cat /dev/zero | head -c8', shell=True, stderr=open('/dev/null', 'w+b'))
+p.recv()
+b'\x00\x00\x00\x00\x00\x00\x00\x00'
+p = process(['python','-c','import os; print(os.read(2,1024).decode())'],
+            preexec_fn = lambda: os.dup2(0,2))
+p.sendline(b'hello')
+p.recvline()
+b'hello\n'
+stack_smashing = ['python','-c','open("/dev/tty","wb").write(b"stack smashing detected")']
+process(stack_smashing).recvall()
+b'stack smashing detected'
+process(stack_smashing, stdout=PIPE).recvall()
+b''
+getpass = ['python','-c','import getpass; print(getpass.getpass("XXX"))']
+p = process(getpass, stdin=PTY)
+p.recv()
+b'XXX'
+p.sendline(b'hunter2')
+p.recvall()
+b'\nhunter2\n'
+process('echo hello 1>&2', shell=True).recvall()
+b'hello\n'
+process('echo hello 1>&2', shell=True, stderr=PIPE).recvall()
+b''
+a = process(['cat', '/proc/self/maps']).recvall()
+b = process(['cat', '/proc/self/maps'], aslr=False).recvall()
+with context.local(aslr=False):
+   c = process(['cat', '/proc/self/maps']).recvall()
+a == b
+False
+b == c
+True
+process(['sh','-c','ulimit -s'], aslr=0).recvline()
+b'unlimited\n'
+io = process(['sh','-c','sleep 10; exit 7'], alarm=2)
+io.poll(block=True) == -signal.SIGALRM
+True
+binary = ELF.from_assembly('nop', arch='mips')
+p = process(binary.path)
+binary_dir, binary_name = os.path.split(binary.path)
+p = process('./{}'.format(binary_name), cwd=binary_dir)
+p = process(binary.path, cwd=binary_dir)
+p = process('./{}'.format(binary_name), cwd=os.path.relpath(binary_dir))
+p = process(binary.path, cwd=os.path.relpath(binary_dir))
+
+"""
